@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoveNow — Entrenamiento funcional</title>
+<meta name="description" content="MoveNow es un ecosistema de entrenamiento funcional híbrido: método, hábitos, suplementación y tecnología, presencial o por Zoom.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --paper:#E7E5E2;
+    --paper-raised:#FFFFFF;
+    --ink:#1A1A1A;
+    --ink-soft:#5A564D;
+    --accent:#F26522;
+    --accent-deep:#C94F16;
+    --mist:#DAD7D1;
+    --line:#D3CFC7;
+
+    --font-display:"Big Shoulders Display", "Arial Narrow", sans-serif;
+    --font-body:"Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#15130F;
+      --paper-raised:#1D1A15;
+      --ink:#F5F2EA;
+      --ink-soft:#B9B3A5;
+      --accent:#FF7A3D;
+      --accent-deep:#FFA36B;
+      --mist:#221E17;
+      --line:#332D23;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#15130F;
+    --paper-raised:#1D1A15;
+    --ink:#F5F2EA;
+    --ink-soft:#B9B3A5;
+    --accent:#FF7A3D;
+    --accent-deep:#FFA36B;
+    --mist:#221E17;
+    --line:#332D23;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  img{ max-width:100%; display:block; }
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding-inline:clamp(20px,5vw,64px);
+  }
+
+  a{ color:inherit; }
+
+  .eyebrow{
+    font-family:var(--font-body);
+    font-weight:800;
+    font-size:12.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+  }
+
+  h1,h2,h3{
+    font-family:var(--font-display);
+    font-weight:800;
+    letter-spacing:-.01em;
+    line-height:.98;
+    margin:0;
+    text-wrap:balance;
+  }
+
+  p{ margin:0; }
+
+  /* ---------- logo lockup ---------- */
+  .logo{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:26px;
+    color:var(--ink);
+    text-decoration:none;
+    letter-spacing:-.01em;
+  }
+  .logo .rings{ width:34px; height:22px; flex:0 0 auto; }
+  .ring-a{ stroke:var(--accent); }
+  .ring-b{ stroke:var(--ink); }
+
+  @media (prefers-reduced-motion:no-preference){
+    .hero-rings{
+      animation:spin 26s linear infinite;
+      transform-origin:center;
+    }
+  }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    padding-block:16px;
+  }
+  .nav-links{
+    display:flex;
+    gap:32px;
+    list-style:none;
+    margin:0; padding:0;
+    font-weight:600;
+    font-size:14.5px;
+  }
+  .nav-links a{
+    text-decoration:none;
+    color:var(--ink-soft);
+    transition:color .15s ease;
+  }
+  .nav-links a:hover{ color:var(--ink); }
+
+  @media (max-width:760px){
+    .nav-links{ display:none; }
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:14.5px;
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:999px;
+    border:1px solid transparent;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .btn:active{ transform:scale(.97); }
+  .btn-primary{
+    background:var(--ink);
+    color:var(--paper);
+  }
+  .btn-primary:hover{ background:var(--accent); }
+  .btn-ghost{
+    background:transparent;
+    border-color:var(--line);
+    color:var(--ink);
+  }
+  .btn-ghost:hover{ border-color:var(--ink); }
+  .btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+
+  .btn-sm{ padding:9px 18px; font-size:13.5px; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding-block:clamp(56px,9vw,110px) clamp(48px,7vw,90px);
+    position:relative;
+    overflow:clip;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:clamp(32px,6vw,64px);
+    align-items:center;
+  }
+  @media (max-width:860px){
+    .hero-grid{ grid-template-columns:1fr; }
+  }
+  .hero h1{
+    font-size:clamp(42px,6.4vw,88px);
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--accent);
+  }
+  .hero-sub{
+    max-width:46ch;
+    color:var(--ink-soft);
+    font-size:clamp(16px,1.6vw,18.5px);
+    margin-top:22px;
+  }
+  .hero-ctas{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:34px;
+  }
+  .hero-note{
+    margin-top:22px;
+    font-size:13px;
+    color:var(--ink-soft);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .hero-note .dot{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--accent);
+    flex:0 0 auto;
+  }
+
+  .hero-visual{
+    position:relative;
+    aspect-ratio:1/1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-visual svg{ width:100%; height:100%; }
+
+  /* ---------- pillars ---------- */
+  .section{ padding-block:clamp(64px,9vw,120px); }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:clamp(32px,5vw,56px);
+    flex-wrap:wrap;
+  }
+  .section-head h2{ font-size:clamp(30px,4vw,46px); margin-top:10px; }
+  .section-head .lede{
+    max-width:38ch;
+    color:var(--ink-soft);
+    font-size:15.5px;
+  }
+
+  .pillars{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+  }
+  @media (max-width:900px){
+    .pillars{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (max-width:520px){
+    .pillars{ grid-template-columns:1fr; }
+  }
+  .pillar{
+    background:var(--paper-raised);
+    padding:32px 26px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    transition:background .2s ease;
+  }
+  .pillar:hover{ background:var(--mist); }
+  .pillar .num{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:14px;
+    color:var(--accent);
+  }
+  .pillar h3{ font-size:22px; font-weight:800; }
+  .pillar p{ color:var(--ink-soft); font-size:14.5px; }
+
+  /* ---------- how it works ---------- */
+  .modes{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+  }
+  @media (max-width:760px){
+    .modes{ grid-template-columns:1fr; }
+  }
+  .mode{
+    background:var(--paper-raised);
+    padding:clamp(28px,4vw,44px);
+  }
+  .mode.is-accent{ background:var(--ink); color:var(--paper); }
+  .mode.is-accent .mode-tag{ color:var(--accent-deep); }
+  .mode.is-accent p{ color:color-mix(in srgb, var(--paper) 78%, transparent); }
+  .mode-tag{
+    font-weight:800;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+  }
+  .mode h3{
+    font-size:clamp(24px,3vw,32px);
+    margin-top:12px;
+  }
+  .mode p{
+    margin-top:14px;
+    color:var(--ink-soft);
+    font-size:15px;
+    max-width:42ch;
+  }
+  .mode ul{
+    list-style:none;
+    margin:20px 0 0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    font-size:14px;
+  }
+  .mode li{ display:flex; gap:10px; align-items:baseline; }
+  .mode li::before{
+    content:"";
+    width:5px; height:5px;
+    border-radius:50%;
+    background:var(--accent);
+    flex:0 0 auto;
+    transform:translateY(-2px);
+  }
+
+  /* ---------- allies ---------- */
+  .allies-strip{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:8px;
+  }
+  .ally{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    padding:22px 26px;
+    border:1px solid var(--line);
+    border-top:3px solid var(--ally-accent, var(--line));
+    border-radius:14px;
+    flex:1 1 240px;
+    background:var(--paper-raised);
+  }
+  .ally .ally-tag{
+    font-size:11.5px;
+    font-weight:800;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .ally .ally-logo-plate{
+    display:inline-flex;
+    align-items:center;
+    background:#FFFFFF;
+    border-radius:8px;
+    padding:8px 12px;
+    width:fit-content;
+    margin:2px 0 2px;
+  }
+  .ally .ally-logo{
+    height:22px;
+    width:auto;
+    display:block;
+  }
+  .ally p{ color:var(--ink-soft); font-size:14px; }
+
+  /* ---------- team ---------- */
+  .team{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  @media (max-width:700px){
+    .team{ grid-template-columns:1fr; }
+  }
+  .person{
+    padding:clamp(26px,3vw,34px);
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:var(--paper-raised);
+  }
+  .avatar{
+    width:52px; height:52px;
+    border-radius:50%;
+    background:var(--mist);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:20px;
+    color:var(--ink);
+    border:1px solid var(--line);
+  }
+  .person h3{ font-size:22px; margin-top:16px; }
+  .person .role{
+    color:var(--accent);
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.03em;
+    margin-top:4px;
+    display:block;
+  }
+  .person p.bio{
+    margin-top:12px;
+    color:var(--ink-soft);
+    font-size:14.5px;
+  }
+
+  /* ---------- CTA / reserve ---------- */
+  .reserve{
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:28px;
+    padding:clamp(36px,6vw,72px);
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:40px;
+    align-items:center;
+  }
+  @media (max-width:820px){
+    .reserve{ grid-template-columns:1fr; }
+  }
+  .reserve .eyebrow{ color:var(--accent-deep); }
+  .reserve h2{
+    font-size:clamp(30px,4.4vw,48px);
+    margin-top:10px;
+  }
+  .reserve p{
+    color:color-mix(in srgb, var(--paper) 75%, transparent);
+    margin-top:16px;
+    max-width:44ch;
+    font-size:15px;
+  }
+  .reserve-actions{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .contact-btn{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:18px 22px;
+    border-radius:14px;
+    background:color-mix(in srgb, var(--paper) 8%, transparent);
+    border:1px solid color-mix(in srgb, var(--paper) 18%, transparent);
+    text-decoration:none;
+    color:var(--paper);
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .contact-btn:hover{
+    background:var(--accent);
+    border-color:var(--accent);
+  }
+  .contact-btn .label{ font-weight:700; font-size:15px; }
+  .contact-btn .value{
+    font-size:13px;
+    color:color-mix(in srgb, var(--paper) 65%, transparent);
+  }
+  .contact-btn:hover .value{ color:color-mix(in srgb, var(--ink) 75%, transparent); }
+  .contact-btn .arrow{ font-size:18px; }
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding-block:40px;
+  }
+  .footer-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .footer-tagline{
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  .footer-links{
+    display:flex;
+    gap:20px;
+    list-style:none;
+    margin:0; padding:0;
+    font-size:13px;
+  }
+  .footer-links a{ text-decoration:none; color:var(--ink-soft); }
+  .footer-links a:hover{ color:var(--ink); }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav-row">
+    <a class="logo" href="#top" aria-label="MoveNow — inicio">
+      <span>M</span>
+      <svg class="rings" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle class="ring-a" cx="24" cy="20" r="14" stroke-width="7.5"/>
+        <circle class="ring-b" cx="40" cy="20" r="14" stroke-width="7.5"/>
+      </svg>
+      <span>veNow</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#programa">Programa</a></li>
+      <li><a href="#como-funciona">Cómo funciona</a></li>
+      <li><a href="#alianzas">Alianzas</a></li>
+      <li><a href="#equipo">Equipo</a></li>
+    </ul>
+    <a class="btn btn-primary btn-sm" href="#reserva">Reserva tu plaza</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Entrenamiento funcional · presencial y online</p>
+        <h1>Tu <em>mejor versión</em><br>empieza en movimiento.</h1>
+        <p class="hero-sub">MoveNow es un ecosistema de entrenamiento funcional que une método, hábitos, suplementación y tecnología — en grupo reducido, donde estés.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#reserva">Reserva tu plaza</a>
+          <a class="btn btn-ghost" href="#como-funciona">Cómo funciona</a>
+        </div>
+        <p class="hero-note"><span class="dot"></span>Grupo reducido · cupos limitados</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg class="hero-rings" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle class="ring-a" cx="95" cy="120" r="72" stroke-width="20"/>
+          <circle class="ring-b" cx="155" cy="120" r="72" stroke-width="20"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="section wrap" id="programa">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">El método</p>
+        <h2>Cuatro pilares, un solo objetivo.</h2>
+      </div>
+      <p class="lede">Nada aislado: cada sesión conecta con hábitos, nutrición y seguimiento real.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="num">01</span>
+        <h3>Entrenamiento funcional</h3>
+        <p>Movilidad, fuerza y acondicionamiento con cargas escalables a tu nivel real — no al de la persona de al lado.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">02</span>
+        <h3>Hábitos &amp; mentalidad</h3>
+        <p>Sueño, constancia y foco. Cambio de hábitos sostenido, con seguimiento cercano sesión a sesión.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">03</span>
+        <h3>Suplementación</h3>
+        <p>Recomendaciones de suplementación e hidratación con nuestros partners, ajustadas a tu rutina y objetivo.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">04</span>
+        <h3>Tecnología</h3>
+        <p>Reservas, progreso y contenido asistido por IA, para que entrenar te cueste menos decidir.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section wrap" id="como-funciona">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Híbrido, de verdad</p>
+        <h2>Presencial o por Zoom. La misma metodología.</h2>
+      </div>
+      <p class="lede">Elige cómo entrenar según tu semana — sin perder corrección técnica ni seguimiento.</p>
+    </div>
+    <div class="modes">
+      <div class="mode">
+        <p class="mode-tag">Presencial</p>
+        <h3>En grupo reducido</h3>
+        <p>Clases en nuestro espacio partner, con material funcional y corrección técnica en directo.</p>
+        <ul>
+          <li>Mancuernas, bandas y mats</li>
+          <li>Grupos pequeños, ambiente de comunidad</li>
+          <li>Ajuste de carga en tiempo real</li>
+        </ul>
+      </div>
+      <div class="mode is-accent">
+        <p class="mode-tag">Online</p>
+        <h3>En directo por Zoom</h3>
+        <p>La misma sesión, la misma exigencia, desde casa, la oficina o donde te pille el día.</p>
+        <ul>
+          <li>Clase en directo, no grabada</li>
+          <li>Seguimiento personalizado igual que en sala</li>
+          <li>Sin barreras de horario ni ciudad</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALLIES -->
+  <section class="section wrap" id="alianzas">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Alianzas estratégicas</p>
+        <h2>Marcas que ya cuidan el detalle.</h2>
+      </div>
+      <p class="lede">Suplementación e hidratación integradas en tu rutina, no vendidas aparte.</p>
+    </div>
+    <div class="allies-strip">
+      <div class="ally" style="--ally-accent:#0B7CF7;">
+        <span class="ally-tag">Suplementación y nutrición</span>
+        <span class="ally-logo-plate"><img class="ally-logo" src="assets/partners/zumub_logo.png" alt="Zumub" loading="lazy"></span>
+        <p>Recomendación de producto y códigos de descuento ligados a tu plan de entrenamiento.</p>
+      </div>
+      <div class="ally" style="--ally-accent:#E30613;">
+        <span class="ally-tag">Hidratación oficial</span>
+        <span class="ally-logo-plate"><img class="ally-logo" src="assets/partners/dia_logo.svg" alt="Dia" loading="lazy"></span>
+        <p>Hidratación pensada para el esfuerzo real de cada sesión, presencial u online.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section wrap" id="equipo">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Quién entrena contigo</p>
+        <h2>Un equipo pequeño, cobertura completa.</h2>
+      </div>
+    </div>
+    <div class="team">
+      <div class="person">
+        <div class="avatar">AA</div>
+        <h3>Aitza Arboleda</h3>
+        <span class="role">CEO &amp; Fundadora</span>
+        <p class="bio">Diseña la metodología de entrenamiento funcional y lidera cada clase, presencial y online, con foco en el cambio de hábitos reales.</p>
+      </div>
+      <div class="person">
+        <div class="avatar">CD</div>
+        <h3>César Damián</h3>
+        <span class="role">CTO &amp; CO-Fundador</span>
+        <p class="bio">Construye la plataforma, las alianzas y la estrategia detrás de cada sesión, para que MoveNow escale sin perder cercanía.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVE -->
+  <section class="wrap" style="padding-block: 0 clamp(64px,9vw,120px);" id="reserva">
+    <div class="reserve">
+      <div>
+        <p class="eyebrow">Cupos limitados</p>
+        <h2>Reserva tu plaza.</h2>
+        <p>Grupos reducidos para mantener la atención personalizada. Escríbenos y te confirmamos horario y modalidad.</p>
+      </div>
+      <div class="reserve-actions">
+        <a class="contact-btn" href="https://wa.me/34684758012?text=Hola%2C%20quiero%20reservar%20mi%20plaza%20en%20MoveNow" target="_blank" rel="noopener">
+          <span>
+            <span class="label">WhatsApp</span><br>
+            <span class="value">+34 684 75 80 12</span>
+          </span>
+          <span class="arrow">↗</span>
+        </a>
+        <a class="contact-btn" href="mailto:movenowadministrador@gmail.com?subject=Quiero%20reservar%20mi%20plaza%20en%20MoveNow">
+          <span>
+            <span class="label">Email</span><br>
+            <span class="value">movenowadministrador@gmail.com</span>
+          </span>
+          <span class="arrow">↗</span>
+        </a>
+        <a class="contact-btn" href="https://instagram.com/movenow1430" target="_blank" rel="noopener">
+          <span>
+            <span class="label">Instagram</span><br>
+            <span class="value">@movenow1430</span>
+          </span>
+          <span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <a class="logo" href="#top" aria-label="MoveNow — inicio" style="font-size:20px;">
+      <span>M</span>
+      <svg class="rings" viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:26px;height:17px;">
+        <circle class="ring-a" cx="24" cy="20" r="14" stroke-width="7.5"/>
+        <circle class="ring-b" cx="40" cy="20" r="14" stroke-width="7.5"/>
+      </svg>
+      <span>veNow</span>
+    </a>
+    <p class="footer-tagline">Fitness · Hábitos · Suplementación · Tecnología</p>
+    <ul class="footer-links">
+      <li><a href="https://instagram.com/movenow1430" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://wa.me/34684758012" target="_blank" rel="noopener">WhatsApp</a></li>
+      <li>&copy; 2026 MoveNow</li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
