@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
+<script src="assets/nav.js" defer></script>
 </head>
 <body>
 
@@ -22,7 +23,7 @@
       </svg>
       <span>veNow</span>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html#programa">Programa</a></li>
       <li><a href="index.html#como-funciona">Cómo funciona</a></li>
       <li><a href="galeria.html" class="is-active">Galería</a></li>
@@ -30,6 +31,9 @@
       <li><a href="index.html#equipo">Equipo</a></li>
     </ul>
     <a class="btn btn-primary btn-sm" href="index.html#reserva">Reserva tu plaza</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
