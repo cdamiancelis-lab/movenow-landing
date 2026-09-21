@@ -462,11 +462,6 @@ header{
 }
 .media-tile.is-video{ aspect-ratio:16/9; }
 .media-tile svg{ width:24px; height:24px; stroke:var(--ink-soft); flex:0 0 auto; }
-.media-tile .media-label{
-  font-size:12px;
-  font-weight:600;
-  line-height:1.35;
-}
 .media-tile .media-cat{
   position:absolute;
   top:10px;
@@ -477,6 +472,44 @@ header{
   text-transform:uppercase;
   color:var(--accent);
   background:color-mix(in srgb, var(--accent) 12%, var(--paper-raised));
+  padding:4px 8px;
+  border-radius:999px;
+}
+
+/* media tiles carrying a real (or demo) thumbnail image */
+.media-tile.has-thumb{ padding:0; }
+.media-tile .media-thumb{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+}
+.media-tile.has-thumb.is-video::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, color-mix(in srgb, var(--ink) 60%, transparent), transparent 60%);
+  z-index:1;
+}
+.media-tile.has-thumb svg,
+.media-tile.has-thumb .media-cat{
+  position:relative;
+  z-index:2;
+}
+.media-tile.has-thumb.is-video svg{ stroke:var(--paper); }
+.media-tile .demo-badge{
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:2;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--paper);
+  background:color-mix(in srgb, var(--ink) 65%, transparent);
   padding:4px 8px;
   border-radius:999px;
 }
