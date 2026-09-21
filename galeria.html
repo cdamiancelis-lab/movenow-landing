@@ -48,36 +48,19 @@
   </section>
 
   <!-- PHOTOS -->
-  <section class="section wrap" id="fotos">
+  <section class="section wrap" id="fotos" hidden>
     <div class="section-head">
       <div>
         <p class="eyebrow">Así se vive MoveNow</p>
         <h2>La energía no se explica, se ve.</h2>
       </div>
-      <p class="lede">Fotos reales de cada clase presencial — las iremos sumando aquí.</p>
+      <p class="lede">Fotos reales de cada clase presencial.</p>
     </div>
-    <div class="media-grid is-photos">
-      <div class="media-tile has-thumb">
-        <img class="media-thumb" src="https://picsum.photos/seed/movenow-foto-1/600/750" alt="Foto de ejemplo — clase presencial MoveNow" loading="lazy">
-        <span class="demo-badge">Ejemplo</span>
-      </div>
-      <div class="media-tile has-thumb">
-        <img class="media-thumb" src="https://picsum.photos/seed/movenow-foto-2/600/750" alt="Foto de ejemplo — clase presencial MoveNow" loading="lazy">
-        <span class="demo-badge">Ejemplo</span>
-      </div>
-      <div class="media-tile has-thumb">
-        <img class="media-thumb" src="https://picsum.photos/seed/movenow-foto-3/600/750" alt="Foto de ejemplo — clase presencial MoveNow" loading="lazy">
-        <span class="demo-badge">Ejemplo</span>
-      </div>
-      <div class="media-tile has-thumb">
-        <img class="media-thumb" src="https://picsum.photos/seed/movenow-foto-4/600/750" alt="Foto de ejemplo — clase presencial MoveNow" loading="lazy">
-        <span class="demo-badge">Ejemplo</span>
-      </div>
-    </div>
+    <div class="media-grid is-photos" data-media-grid="fotos"></div>
   </section>
 
   <!-- RECORDED CLASSES -->
-  <section class="section wrap" id="clases-grabadas">
+  <section class="section wrap" id="clases-grabadas" hidden>
     <div class="section-head">
       <div>
         <p class="eyebrow">¿Faltaste a una clase?</p>
@@ -85,30 +68,11 @@
       </div>
       <p class="lede">Grabamos cada clase para que no pierdas el ritmo del grupo.</p>
     </div>
-    <div class="media-grid">
-      <div class="media-tile is-video has-thumb">
-        <img class="media-thumb" src="https://picsum.photos/seed/movenow-clase-1/640/360" alt="Video de ejemplo — clase presencial grabada" loading="lazy">
-        <span class="media-cat">Presencial</span>
-        <span class="demo-badge">Ejemplo</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
-      </div>
-      <div class="media-tile is-video has-thumb">
-        <img class="media-thumb" src="https://picsum.photos/seed/movenow-clase-2/640/360" alt="Video de ejemplo — clase online por Zoom grabada" loading="lazy">
-        <span class="media-cat">Online · Zoom</span>
-        <span class="demo-badge">Ejemplo</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
-      </div>
-      <div class="media-tile is-video has-thumb">
-        <img class="media-thumb" src="https://picsum.photos/seed/movenow-clase-3/640/360" alt="Video de ejemplo — clase presencial grabada" loading="lazy">
-        <span class="media-cat">Presencial</span>
-        <span class="demo-badge">Ejemplo</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
-      </div>
-    </div>
+    <div class="media-grid" data-media-grid="clases"></div>
   </section>
 
   <!-- EXERCISES -->
-  <section class="section wrap" id="ejercicios">
+  <section class="section wrap" id="ejercicios" hidden>
     <div class="section-head">
       <div>
         <p class="eyebrow">Biblioteca de técnica</p>
@@ -116,35 +80,82 @@
       </div>
       <p class="lede">Videos cortos para repasar la técnica de cada ejercicio, cuando lo necesites.</p>
     </div>
-    <div class="media-grid is-exercises">
-      <div class="media-tile is-video has-thumb">
-        <img class="media-thumb" src="https://picsum.photos/seed/movenow-ejercicio-1/640/360" alt="Video de ejemplo — ejercicio de movilidad" loading="lazy">
-        <span class="media-cat">Movilidad</span>
-        <span class="demo-badge">Ejemplo</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
+    <div class="media-grid is-exercises" data-media-grid="ejercicios"></div>
+  </section>
+
+  <!-- EMPTY STATE (shown while no real content has been uploaded yet) -->
+  <section class="section wrap" id="galeria-vacia">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Contenido en camino</p>
+        <h2>Muy pronto verás aquí fotos y videos reales.</h2>
       </div>
-      <div class="media-tile is-video has-thumb">
-        <img class="media-thumb" src="https://picsum.photos/seed/movenow-ejercicio-2/640/360" alt="Video de ejemplo — ejercicio de fuerza funcional" loading="lazy">
-        <span class="media-cat">Fuerza funcional</span>
-        <span class="demo-badge">Ejemplo</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
-      </div>
-      <div class="media-tile is-video has-thumb">
-        <img class="media-thumb" src="https://picsum.photos/seed/movenow-ejercicio-3/640/360" alt="Video de ejemplo — ejercicio de core" loading="lazy">
-        <span class="media-cat">Core</span>
-        <span class="demo-badge">Ejemplo</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
-      </div>
-      <div class="media-tile is-video has-thumb">
-        <img class="media-thumb" src="https://picsum.photos/seed/movenow-ejercicio-4/640/360" alt="Video de ejemplo — ejercicio de cardio" loading="lazy">
-        <span class="media-cat">Cardio</span>
-        <span class="demo-badge">Ejemplo</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
-      </div>
+      <p class="lede">Estamos sumando el material de las clases. Vuelve pronto.</p>
     </div>
   </section>
 
 </main>
+
+<script>
+(function () {
+  var IMAGE_EXT = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'avif', 'heic'];
+  var VIDEO_EXT = ['mp4', 'mov', 'webm', 'm4v'];
+  var FOLDERS = { fotos: 'fotos', clases: 'videos-clases', ejercicios: 'ejercicios' };
+
+  function extOf(name) {
+    var i = name.lastIndexOf('.');
+    return i === -1 ? '' : name.slice(i + 1).toLowerCase();
+  }
+
+  function tileFor(key, filename) {
+    var ext = extOf(filename);
+    var src = 'assets/gallery/' + FOLDERS[key] + '/' + encodeURIComponent(filename);
+    var tile = document.createElement('div');
+    if (IMAGE_EXT.indexOf(ext) !== -1) {
+      tile.className = 'media-tile has-thumb';
+      var img = document.createElement('img');
+      img.className = 'media-thumb';
+      img.src = src;
+      img.alt = 'Foto MoveNow';
+      img.loading = 'lazy';
+      tile.appendChild(img);
+    } else if (VIDEO_EXT.indexOf(ext) !== -1) {
+      tile.className = 'media-tile has-video';
+      var video = document.createElement('video');
+      video.className = 'media-thumb';
+      video.controls = true;
+      video.preload = 'metadata';
+      var source = document.createElement('source');
+      source.src = src;
+      video.appendChild(source);
+      tile.appendChild(video);
+    } else {
+      return null;
+    }
+    return tile;
+  }
+
+  fetch('assets/gallery/manifest.json', { cache: 'no-store' })
+    .then(function (res) { return res.ok ? res.json() : null; })
+    .then(function (manifest) {
+      if (!manifest) return;
+      var anyVisible = false;
+      Object.keys(FOLDERS).forEach(function (key) {
+        var files = manifest[key] || [];
+        var grid = document.querySelector('[data-media-grid="' + key + '"]');
+        if (!grid || !files.length) return;
+        files.forEach(function (filename) {
+          var tile = tileFor(key, filename);
+          if (tile) grid.appendChild(tile);
+        });
+        grid.closest('section').hidden = false;
+        anyVisible = true;
+      });
+      document.getElementById('galeria-vacia').hidden = anyVisible;
+    })
+    .catch(function () { /* keep the empty-state section visible */ });
+})();
+</script>
 
 <footer>
   <div class="wrap footer-row">
