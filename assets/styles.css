@@ -1018,3 +1018,17 @@ body{ font-size:17px; }
 .ik-center p{ font-size:clamp(19px,1.6vw,23px); }
 @media (max-width:1040px){ .ik-grid{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); } }
 @media (max-width:860px){ .ik-grid{ grid-template-columns:1fr; } .ikigai{ max-height:none; } }
+
+/* ronda 3: gráfico bastante más grande, cruces muy compactos */
+@media (min-width:861px){
+  .ik-grid{ grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr); }
+  .ikigai{ max-height:clamp(380px, calc(100vh - 215px), 680px); }
+  .ik-x small{ display:none; }
+  .ik-x{ padding:8px 12px; gap:0; border-radius:16px; }
+  .ik-xk{ font-size:18px; }
+  .ik-x p{ font-size:13.5px; line-height:1.25; }
+  .ik-center{ padding:8px 12px; border-radius:16px; }
+  .ik-center .ik-xk{ font-size:16px; }
+  .ik-center p{ font-size:clamp(17px,1.4vw,21px); }
+  .ik-cross{ gap:8px; margin-top:8px; }
+}
