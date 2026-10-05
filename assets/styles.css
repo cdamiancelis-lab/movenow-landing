@@ -597,3 +597,130 @@ footer{
 }
 .footer-links a{ text-decoration:none; color:var(--ink-soft); }
 .footer-links a:hover{ color:var(--ink); }
+
+/* ---------- etapas de vida + MoveNow Recupera ---------- */
+:root{ --recupera:#1F7A6C; --recupera-soft:#E4F1EE; }
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --recupera:#4FBFAC; --recupera-soft:#16302B; }
+}
+:root[data-theme="dark"]{ --recupera:#4FBFAC; --recupera-soft:#16302B; }
+
+.etapas{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:36px;
+}
+@media (max-width:900px){
+  .etapas{ grid-template-columns:1fr; gap:30px; }
+}
+.etapa{
+  padding-top:22px;
+  border-top:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.etapa.is-soon{ border-top-style:dashed; }
+.etapa h3{ font-size:clamp(28px,3.2vw,34px); }
+.etapa p{ color:var(--ink-soft); font-size:15px; max-width:36ch; }
+.etapa-status{
+  display:inline-flex;
+  width:fit-content;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:4px 10px;
+  border-radius:999px;
+}
+.etapa-status.is-open{ color:var(--accent-deep); background:color-mix(in srgb, var(--accent) 14%, var(--paper)); }
+.etapa-status.is-pilot{ color:var(--recupera); background:var(--recupera-soft); }
+.etapa-status.is-soon{ color:var(--ink-soft); border:1px solid var(--line); }
+.etapa-link{
+  margin-top:auto;
+  width:fit-content;
+  font-weight:800;
+  font-size:14.5px;
+  text-decoration:none;
+  color:var(--ink);
+  border-bottom:2px solid var(--accent);
+  padding-bottom:2px;
+}
+.etapa.is-recupera .etapa-link{ border-bottom-color:var(--recupera); }
+.etapa.is-soon .etapa-link{ border-bottom-color:var(--line); }
+.etapa-link:hover{ color:var(--accent-deep); }
+.etapa-link:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+.recupera{
+  background:var(--recupera-soft);
+  border-radius:28px;
+  padding:clamp(28px,5vw,64px);
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:clamp(28px,4vw,56px);
+  align-items:start;
+}
+@media (max-width:860px){
+  .recupera{ grid-template-columns:1fr; }
+}
+.recupera .eyebrow{ color:var(--recupera); }
+.recupera h2{ font-size:clamp(34px,5vw,56px); margin-top:10px; }
+.recupera-lede{ margin-top:18px; font-size:18px; line-height:1.6; max-width:46ch; }
+.recupera-points{
+  list-style:none;
+  margin:22px 0 0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  font-size:17px;
+}
+.recupera-points li{ position:relative; padding-left:22px; line-height:1.5; }
+.recupera-points li::before{
+  content:"";
+  position:absolute;
+  left:0; top:.6em;
+  width:7px; height:7px;
+  border-radius:50%;
+  background:var(--recupera);
+}
+.recupera-note{ margin-top:22px; font-size:14.5px; color:var(--ink-soft); max-width:52ch; line-height:1.55; }
+.recupera-actions{ display:flex; flex-direction:column; gap:14px; }
+.recupera-card{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:22px 24px;
+  background:var(--paper-raised);
+  border:1.5px solid color-mix(in srgb, var(--recupera) 35%, var(--line));
+  border-radius:18px;
+  text-decoration:none;
+  color:var(--ink);
+  transition:border-color .15s ease;
+}
+.recupera-card:hover{ border-color:var(--recupera); }
+.recupera-card:focus-visible{ outline:3px solid var(--recupera); outline-offset:3px; }
+.rc-label{ font-family:var(--font-display); font-weight:800; font-size:24px; line-height:1.05; }
+.rc-text{ font-size:15px; color:var(--ink-soft); line-height:1.5; }
+.rc-cta{ margin-top:4px; font-weight:800; font-size:15px; color:var(--recupera); }
+.recupera-source{ font-size:13px; color:var(--ink-soft); line-height:1.5; }
+.recupera-source a{ color:var(--recupera); font-weight:700; }
+
+.ally.is-open{
+  border-left-style:dashed;
+  border-right-style:dashed;
+  border-bottom-style:dashed;
+}
+.ally-open-title{ font-size:22px; }
+.ally-open-link{
+  margin-top:auto;
+  width:fit-content;
+  font-weight:800;
+  font-size:14px;
+  text-decoration:none;
+  color:var(--recupera);
+  border-bottom:2px solid var(--recupera);
+}
+.ally-open-link:focus-visible{ outline:2px solid var(--recupera); outline-offset:3px; }
+
+.reserve p a{ color:var(--paper); text-decoration:underline; text-underline-offset:3px; }
