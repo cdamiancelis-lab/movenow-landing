@@ -1005,3 +1005,16 @@ body{ font-size:17px; }
   .ik-legend li{ padding:6px 14px; }
 }
 .ik-t{ font-size:24px; }
+
+/* ronda: gráfico más grande, bloques de cruces más pequeños */
+.ik-grid{ grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); }
+.ikigai{ max-height:clamp(300px, calc(100vh - 330px), 560px); }
+.ik-cross{ gap:10px; margin-top:clamp(8px,1.2vh,16px); }
+.ik-x{ padding:9px 12px; border-radius:18px; gap:2px; }
+.ik-xk{ font-size:20px; }
+.ik-x small{ font-size:12px; }
+.ik-x p{ font-size:14px; line-height:1.25; }
+.ik-center{ padding:9px 14px; border-radius:18px; }
+.ik-center p{ font-size:clamp(19px,1.6vw,23px); }
+@media (max-width:1040px){ .ik-grid{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); } }
+@media (max-width:860px){ .ik-grid{ grid-template-columns:1fr; } .ikigai{ max-height:none; } }
