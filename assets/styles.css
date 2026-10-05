@@ -724,3 +724,56 @@ footer{
 .ally-open-link:focus-visible{ outline:2px solid var(--recupera); outline-offset:3px; }
 
 .reserve p a{ color:var(--paper); text-decoration:underline; text-underline-offset:3px; }
+
+/* ---------- sitio de varias páginas ---------- */
+.page-intro + .section{ padding-top:clamp(20px,3vw,36px); }
+.page-intro-slim{ padding-block:clamp(28px,5vw,48px) 0; }
+.page-intro-slim .back-link{ margin-bottom:0; }
+
+.recupera h1{ font-size:clamp(34px,5vw,56px); margin-top:10px; }
+.reserve h1{ font-size:clamp(30px,4.4vw,48px); margin-top:10px; }
+
+.etapas-detalle{ display:flex; flex-direction:column; }
+.etapa-det{
+  display:grid;
+  grid-template-columns:.8fr 2fr;
+  gap:clamp(20px,4vw,56px);
+  padding-block:36px;
+  border-top:1px solid var(--line);
+}
+.etapa-det:last-child{ border-bottom:1px solid var(--line); }
+.etapa-det.is-soon{ border-top-style:dashed; }
+.etapa-det .det-head{ display:flex; flex-direction:column; gap:12px; align-items:flex-start; }
+.etapa-det h2{ font-size:clamp(30px,3.6vw,42px); }
+.det-cols{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+.det-k{
+  display:block;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:8px;
+}
+.etapa-det.is-recupera .det-k{ color:var(--recupera); }
+.det-cols p{ color:var(--ink-soft); font-size:15px; line-height:1.6; }
+@media (max-width:900px){
+  .etapa-det{ grid-template-columns:1fr; }
+  .det-cols{ grid-template-columns:1fr; gap:20px; }
+}
+
+.cta-band{
+  background:var(--ink);
+  color:var(--paper);
+  border-radius:28px;
+  padding:clamp(28px,5vw,56px);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+}
+.cta-band .eyebrow{ color:var(--accent-deep); }
+.cta-band h2{ font-size:clamp(28px,4vw,42px); margin-top:10px; max-width:20ch; }
+.btn-light{ background:var(--paper); color:var(--ink); }
+.btn-light:hover{ background:var(--accent); color:#fff; }
