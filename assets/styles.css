@@ -1081,3 +1081,8 @@ body{ font-size:17px; }
 .contact-btn .label, .contact-btn .value{ display:block; }
 .contact-btn .value{ margin-top:3px; }
 @media (max-width:600px){ .contact-btn{ padding:12px 16px; } .reserve p{ font-size:14.5px; } }
+
+/* ikigai: en escritorio se ve el mismo texto que en el celular */
+.ik-x small{ display:block; }
+.ik-legend span:not(.ik-dot){ display:block; }
+.ik-head .lede{ display:block; }
