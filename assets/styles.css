@@ -1085,3 +1085,9 @@ body{ font-size:17px; }
 /* ikigai: en escritorio se ve el mismo texto que en el celular */
 .ik-x small{ display:block; }
 .ik-legend span:not(.ik-dot){ display:block; }
+/* leyenda del ikigai más pequeña y limpia */
+.ik-legend{ gap:6px; }
+.ik-legend li{ padding:9px 14px; border-radius:14px; gap:10px; align-items:center; }
+.ik-legend b{ font-size:14.5px; line-height:1.25; }
+.ik-legend span:not(.ik-dot){ font-size:13.5px; line-height:1.35; margin-top:1px; }
+.ik-dot{ width:12px; height:12px; margin-top:0; }
