@@ -900,16 +900,11 @@ body{ font-size:17px; }
 .band{ padding-block:clamp(14px,2vw,22px); }
 .band-in{ font-size:clamp(20px,3vw,34px); }
 
-/* franja de palabras: cinta inclinada en movimiento; el hero se funde con lo de abajo */
-main{ overflow-x:clip; }
-.hero-wash{ background:radial-gradient(120% 90% at 85% 0%, var(--accent-soft) 0%, transparent 60%), linear-gradient(180deg, var(--paper) 0%, var(--mist) 55%, var(--paper) 100%); padding-bottom:clamp(24px,4vw,48px); }
-.mq{ background:var(--accent); transform:rotate(-2deg); margin:clamp(-40px,-3vw,-24px) -3vw clamp(8px,2vw,24px); padding-block:clamp(12px,1.6vw,18px); overflow:hidden; position:relative; z-index:1; box-shadow:0 14px 30px rgba(242,101,34,.22); }
-.mq-track{ display:flex; width:max-content; animation:mq 30s linear infinite; }
-.mq-set{ display:flex; align-items:center; font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:.01em; font-size:clamp(22px,3vw,36px); line-height:1; color:#1A1A1A; }
-.mq-set span{ display:inline-flex; align-items:center; gap:clamp(18px,2.6vw,36px); padding-right:clamp(18px,2.6vw,36px); white-space:nowrap; }
-.mq-set span::after{ content:""; width:.28em; height:.28em; border-radius:50%; background:#1A1A1A; }
-@keyframes mq{ to{ transform:translateX(-50%); } }
-@media (prefers-reduced-motion:reduce){ .mq-track{ animation:none; } }
+/* la banda ya no corta la página: píldora dentro del margen y el hero se funde con lo de abajo */
+.hero-wash{ background:radial-gradient(120% 90% at 85% 0%, var(--accent-soft) 0%, transparent 60%), linear-gradient(180deg, var(--paper) 0%, var(--mist) 55%, var(--paper) 100%); padding-bottom:clamp(8px,2vw,24px); }
+.band{ background:none; padding-block:0; overflow:visible; margin-top:clamp(-40px,-3vw,-20px); position:relative; }
+.band-in{ background:var(--accent); border-radius:999px; padding:clamp(14px,1.8vw,20px) clamp(22px,3vw,40px); box-shadow:0 14px 30px rgba(242,101,34,.22); }
+@media (max-width:600px){ .band-in{ border-radius:28px; font-size:18px; gap:8px 14px; } .band-in span{ gap:14px; } }
 
 /* caminos: tarjetas grandes con color propio y formas redondas */
 .caminos{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
