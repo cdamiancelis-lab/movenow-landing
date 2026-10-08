@@ -1043,3 +1043,23 @@ body{ font-size:17px; }
 .hero-wash:has(> .page-intro){ padding-bottom:0; }
 .hero-wash:has(> .page-intro) + .section{ padding-top:clamp(20px,3vw,36px); }
 .hero-wash:has(> .page-intro-slim){ padding-bottom:260px; margin-bottom:-260px; }
+
+/* portada: hero y franja ocupan la primera pantalla; el ikigai empieza debajo */
+.hero-wash:has(> .band){ min-height:calc(100svh - 77px); display:flex; flex-direction:column; padding-bottom:clamp(24px,4vw,48px); }
+.hero-wash:has(> .band) > .hero{ flex:1; display:flex; flex-direction:column; justify-content:center; width:100%; }
+.hero-wash > .band{ margin-top:0; }
+.hero h1 em{ font-size:1.12em; }
+
+/* recupera: título a la izquierda y el dato a la derecha, en el mismo bloque */
+.stat-hero{ grid-template-columns:1.1fr .9fr; align-items:center; }
+@media (max-width:860px){ .stat-hero{ grid-template-columns:1fr; } }
+.stat-hero .eyebrow{ color:#BFE6DE; }
+.stat-hero h1{ color:#fff; font-size:clamp(38px,5vw,64px); margin-top:10px; }
+.sh-stat{ border-left:1.5px solid rgba(255,255,255,.3); padding-left:clamp(20px,3vw,44px); }
+@media (max-width:860px){ .sh-stat{ border-left:none; padding-left:0; border-top:1.5px solid rgba(255,255,255,.3); padding-top:24px; } }
+.sh-stat .stat-big{ font-size:clamp(64px,8vw,112px); margin-bottom:14px; }
+.recupera-lede{ margin-top:0; }
+.hero-wash > .band{ width:100%; }
+.hero h1 em{ white-space:nowrap; }
+.stat-hero .eyebrow{ font-size:13px; line-height:1.4; }
+@media (max-width:360px){ .hero h1 em{ white-space:normal; } }
