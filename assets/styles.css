@@ -1038,3 +1038,8 @@ body{ font-size:17px; }
   .ik-center p{ font-size:clamp(17px,1.4vw,21px); }
   .ik-cross{ gap:8px; margin-top:8px; }
 }
+
+/* el resto de páginas usan el mismo fondo de cabecera que la portada */
+.hero-wash:has(> .page-intro){ padding-bottom:0; }
+.hero-wash:has(> .page-intro) + .section{ padding-top:clamp(20px,3vw,36px); }
+.hero-wash:has(> .page-intro-slim){ padding-bottom:260px; margin-bottom:-260px; }
