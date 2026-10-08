@@ -1085,4 +1085,3 @@ body{ font-size:17px; }
 /* ikigai: en escritorio se ve el mismo texto que en el celular */
 .ik-x small{ display:block; }
 .ik-legend span:not(.ik-dot){ display:block; }
-.ik-head .lede{ display:block; }
