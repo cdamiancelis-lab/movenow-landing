@@ -1005,9 +1005,6 @@ body{ font-size:17px; }
 .ik-x{ padding:12px 14px; }
 @media (max-width:860px){ .ikigai{ max-height:none; } }
 @media (min-width:861px) and (max-height:730px){
-  .ik-legend span:not(.ik-dot){ display:none; }
-  .ik-x small{ display:none; }
-  .ik-head .lede{ display:none; }
   .ik-legend li{ padding:6px 14px; }
 }
 .ik-t{ font-size:24px; }
@@ -1029,7 +1026,6 @@ body{ font-size:17px; }
 @media (min-width:861px){
   .ik-grid{ grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr); }
   .ikigai{ max-height:clamp(380px, calc(100vh - 215px), 680px); }
-  .ik-x small{ display:none; }
   .ik-x{ padding:8px 12px; gap:0; border-radius:16px; }
   .ik-xk{ font-size:18px; }
   .ik-x p{ font-size:13.5px; line-height:1.25; }
@@ -1083,8 +1079,6 @@ body{ font-size:17px; }
 @media (max-width:600px){ .contact-btn{ padding:12px 16px; } .reserve p{ font-size:14.5px; } }
 
 /* ikigai: en escritorio se ve el mismo texto que en el celular */
-.ik-x small{ display:block; }
-.ik-legend span:not(.ik-dot){ display:block; }
 /* leyenda del ikigai más pequeña y limpia */
 .ik-legend{ gap:6px; }
 .ik-legend li{ padding:9px 14px; border-radius:14px; gap:10px; align-items:center; }
